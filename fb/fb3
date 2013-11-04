@@ -1,0 +1,72 @@
+#! /usr/bin/env ruby
+
+# Top-to-bottom FizzBuzz
+
+class FizzBuzz 
+	attr_accessor :start, :finish, :word1, :number1, :word2, :number2, :word3
+	def initialize (start=1, finish=100, word1='Fizz', number1=3, word2='Buzz', number2=5)
+		@start		= start
+		@finish		= finish
+		@word1		= word1
+		@number1	= number1
+		@word2		= word2
+		@number2	= number2
+		@word3		= word1 + word2
+	end
+
+	def spout
+		puts "start is #{@start}"
+		puts "finish is #{@finish}"
+		puts "word1 is #{@word1}"
+		puts "number1 is #{@number1}"
+		puts "word2 is #{@word2}"
+		puts "number2 is #{@number2}"
+		puts "word3 is #{@word3}"
+	end
+
+	def match_word1(n)
+		if n % @number1 == 0 then return true end
+	end
+
+	def match_word2(n)
+		if n % @number2 == 0 then return true end
+	end
+
+	def match_word3(n)
+		if n % @number1 == 0 && n % @number2 == 0 then return true end
+	end
+
+	def go
+		for i in @start..@finish
+			if match_word3(i) then
+				puts @word3
+			elsif match_word1(i) then
+				puts @word1
+			elsif match_word2(i) then
+				puts @word2
+			else
+				puts i
+			end
+		end
+	end
+end
+
+fb = FizzBuzz.new
+fb.go
+
+print "\n-----\n\n"
+
+others = FizzBuzz.new(2,30, 'boo', 4, 'baz', 6)
+others.go
+
+# for i in 1..100
+# 	if i % 15 == 0 then
+# 		puts "FizzBuzz"
+# 	elsif i % 3 == 0 then
+# 		puts "Fizz"
+# 	elsif i % 5 == 0 then
+# 		puts "Buzz"
+# 	else
+# 		puts i
+# 	end
+# end
