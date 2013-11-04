@@ -1,3 +1,17 @@
 #! /usr/bin/env ruby
 
+# Top-to-bottom FizzBuzz
 
+
+for i in 1..100
+	if i % 15 == 0 then
+		print "FizzBuzz"
+	elsif i % 3 == 0 then
+		print "Fizz"
+	elsif i % 5 == 0 then
+		print "Buzz"
+	else
+		print i
+	end
+print "\n"
+end
